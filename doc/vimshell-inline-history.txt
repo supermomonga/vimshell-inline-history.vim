@@ -1,0 +1,98 @@
+*vimshell-inline-history.txt*	Inline history completion for VimShell
+
+Version : 1.0.0
+supermomonga (@supermomonga)
+License : MIT license  {{{
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+    The above copyright notice and this permission notice shall be included
+    in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+    CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+}}}
+
+==============================================================================
+CONTENTS					*vimshell-inline-history-contents*
+
+INTRODUCTION			|vimshell-inline-history-introduction|
+USAGE				|vimshell-inline-history-usage|
+INTERFACE			|vimshell-inline-history-interface|
+  VARIABLES			  |vimshell-inline-history-variables|
+  KEY-MAPPINGS			  |vimshell-inline-history-key-mappings|
+TODO				|vimshell-inline-history-todo|
+CHANGELOG			|vimshell-inline-history-changelog|
+
+
+==============================================================================
+INTRODUCTION					*vimshell-inline-history-introduction*
+
+*vimshell-inline-history* is a Vim plugin for inline history completion for
+VimShell.
+
+Latest version:
+https://github.com/supermomonga/vimshell-inline-history.vim
+
+
+==============================================================================
+USAGE						*vimshell-inline-history-usage*
+
+Use <C-p> and <C-n> at insert-mode in VimShell.
+
+==============================================================================
+INTERFACE					*vimshell-inline-history-interface*
+
+------------------------------------------------------------------------------
+VARIABLES					*vimshell-inline-history-variables*
+
+				*g:vimshell_inline_history#default_mappings*
+g:vimshell_inline_history#default_mappings
+	If it's 1, this plugin define custom mapping.
+	If you don't want this plugin to define mapping, set this 0.
+	default value: 1
+
+
+			*g:vimshell_inline_history#neocomplete_compatible*
+g:vimshell_inline_history#neocomplete_compatible
+	If it's 1, this plugin make neosnippet to not auto-complete
+	only with VimShell buffer.
+	If you don't want this plugin to do this, set this 0.
+	default value: 1
+
+
+------------------------------------------------------------------------------
+KEY-MAPPINGS					*vimshell-inline-history-key-mappings*
+
+<Plug>(vimshell_inline_history#prev)	*<Plug>(vimshell_inline_history#prev)*
+	Overwrite current prompt to previous history which starts with
+	current prompt text.
+	available mode: insert
+
+
+<Plug>(vimshell_inline_history#next)	*<Plug>(vimshell_inline_history#next)*
+	Overwrite current prompt to next history which starts with
+	current prompt text.
+	available mode: insert
+
+
+==============================================================================
+TODO						*vimshell-inline-history-todo*
+
+
+
+==============================================================================
+CHANGELOG					*vimshell-inline-history-changelog*
+
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:noet:fen:fdl=0:
