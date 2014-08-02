@@ -36,7 +36,7 @@ function! vimshell_inline_history#move(volume)
   if g:vimshell_inline_history#history_point > 0
     let l:match = g:vimshell_inline_history#filtered_history[g:vimshell_inline_history#history_point - 1]
   elseif g:vimshell_inline_history#history_point < 0
-    let l:match = g:vimshell_inline_history#filtered_history[abs(g:vimshell_inline_history#history_point + 1)]
+    let l:match = g:vimshell_inline_history#filtered_history[l:filtered_history_volume - abs(g:vimshell_inline_history#history_point)]
   else
     let l:match = g:vimshell_inline_history#stored_current_text
   endif
