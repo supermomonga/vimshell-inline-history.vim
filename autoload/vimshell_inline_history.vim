@@ -56,19 +56,23 @@ function! vimshell_inline_history#prev()
 endfunction
 
 function! vimshell_inline_history#default_mappings()
-  imap <buffer> <C-p>  <Plug>(vimshell_inline_history#prev)
-  imap <buffer> <C-n>  <Plug>(vimshell_inline_history#next)
+  if g:vimshell_inline_history#default_mappings
+    imap <buffer> <C-p>  <Plug>(vimshell_inline_history#prev)
+    imap <buffer> <C-n>  <Plug>(vimshell_inline_history#next)
+  endif
 endfunction
 
 function! vimshell_inline_history#neocomplete_compatible()
-  let g:vimshell_inline_history#neocomplete_disable_auto_complete = get(g:,
-        \   'vimshell_inline_history#neocomplete_disable_auto_complete',
-        \   get(g:, 'neocomplete#disable_auto_complete', 0)
-        \ )
-  if &filetype ==# 'vimshell'
-    let g:neocomplete#disable_auto_complete = 1
-  else
-    let g:neocomplete#disable_auto_complete = g:vimshell_inline_history#neocomplete_disable_auto_complete
+  if g:vimshell_inline_history#neocomplete_compatible
+    let g:vimshell_inline_history#neocomplete_disable_auto_complete = get(g:,
+          \   'vimshell_inline_history#neocomplete_disable_auto_complete',
+          \   get(g:, 'neocomplete#disable_auto_complete', 0)
+          \ )
+    if &filetype ==# 'vimshell'
+      let g:neocomplete#disable_auto_complete = 1
+    else
+      let g:neocomplete#disable_auto_complete = g:vimshell_inline_history#neocomplete_disable_auto_complete
+    endif
   endif
 endfunction
 
