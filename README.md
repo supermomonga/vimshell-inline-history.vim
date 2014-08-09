@@ -2,6 +2,14 @@
 
 This plugin provides inline history completion feature to VimShell.
 
+## Features
+
+![](http://gifzo.net/UKIIEtj887.gif)
+
+- Complete histories by `C-p` and `C-n`.
+- Complete histories which start with current input.
+- Cycle completion.
+
 ## Install
 
 Use `neobundle` to install this plugin.
