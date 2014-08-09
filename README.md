@@ -14,7 +14,7 @@ This plugin provides inline history completion feature to VimShell.
 
 I recommend to use `neobundle` to install this plugin.
 
-```
+```vim
 NeoBundleLazy 'supermomonga/vimshell-inline-history.vim', { 'depends' : [ 'Shougo/vimshell.vim' ] }
 
 if neobundle#tap('vimshell-inline-history.vim')
