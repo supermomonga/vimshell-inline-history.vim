@@ -19,9 +19,9 @@ let g:vimshell_inline_history#neocomplete_compatible = get(g:, 'vimshell_inline_
 
 augroup vimshell_inline_history
   autocmd!
-  autocmd vimshell_inline_history FileType vimshell call vimshell_inline_history#default_mappings()
-  autocmd vimshell_inline_history FileType * call vimshell_inline_history#neocomplete_compatible()
-  autocmd vimshell_inline_history BufEnter * call vimshell_inline_history#neocomplete_compatible()
+  autocmd FileType vimshell call vimshell_inline_history#default_mappings()
+  autocmd FileType * call vimshell_inline_history#neocomplete_compatible()
+  autocmd BufEnter * call vimshell_inline_history#neocomplete_compatible()
 augroup END
 
 
