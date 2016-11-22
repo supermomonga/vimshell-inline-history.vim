@@ -12,7 +12,7 @@ This plugin provides inline history completion feature to VimShell.
 
 ## Install
 
-I recommend to use `neobundle` to install this plugin.
+I recommend using [neobundle](https://github.com/shougo/neobundle.vim) to install this plugin.
 
 ```vim
 NeoBundleLazy 'supermomonga/vimshell-inline-history.vim', { 'depends' : [ 'Shougo/vimshell.vim' ] }
@@ -23,7 +23,17 @@ if neobundle#tap('vimshell-inline-history.vim')
         \     'filetypes' : [ 'vimshell' ]
         \   }
         \ })
-  call neobundle#untap()
+
+	function! neobundle#hooks.on_post_source(bundle)
+		"Example of remapping keys for plugin
+		imap <buffer> <C-j>  <Plug>(vimshell_inline_history#next)
+		imap <buffer> <C-k>  <Plug>(vimshell_inline_history#prev)
+	endfunction
+
+	"Example of unmapping default keys
+	let g:vimshell_inline_history#default_mappings = 0
+
+	call neobundle#untap()
 endif
 ```
 
