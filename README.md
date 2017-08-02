@@ -19,27 +19,27 @@ NeoBundleLazy 'supermomonga/vimshell-inline-history.vim', { 'depends' : [ 'Shoug
 
 if neobundle#tap('vimshell-inline-history.vim')
   call neobundle#config({
-        \   'autoload' : {
-        \     'filetypes' : [ 'vimshell' ]
-        \   }
-        \ })
+  \  'autoload' : {
+  \    'filetypes' : [ 'vimshell' ]
+  \  }
+  \})
 
-	function! neobundle#hooks.on_post_source(bundle)
-		"Example of remapping keys for plugin
-		imap <buffer> <C-j>  <Plug>(vimshell_inline_history#next)
-		imap <buffer> <C-k>  <Plug>(vimshell_inline_history#prev)
-	endfunction
+  function! neobundle#hooks.on_post_source(bundle)
+    "Example of remapping keys for plugin
+    imap <buffer> <C-j>  <Plug>(vimshell_inline_history#next)
+    imap <buffer> <C-k>  <Plug>(vimshell_inline_history#prev)
+  endfunction
 
-	"Example of unmapping default keys
-	let g:vimshell_inline_history#default_mappings = 0
+  "Example of unmapping default keys
+  let g:vimshell_inline_history#default_mappings = 0
 
-	call neobundle#untap()
+  call neobundle#untap()
 endif
 ```
 
 ### [vim-plug](https://github.com/junegunn/vim-plug): 
 
-```
+```vim
 Plug 'supermomonga/vimshell-inline-history.vim', { 'depends' : [ 'Shougo/vimshell.vim' ] }
 
 function! VSHistmapCB(a,b)
@@ -52,7 +52,7 @@ function! VSHistmap()
   call job_start(['bash','-c','echo "-"; exit;'],{'out_cb':'VSHistmapCB'})
 endfunction
 
-  "Group name can be arbitrary so long as doesn't conflict with another
+"Group name can be arbitrary so long as doesn't conflict with another
 augroup VSHistMapping
   autocmd!
   "Get filetype with :echom &filetype when in buffer
