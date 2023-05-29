@@ -1,6 +1,7 @@
 # vimshell-inline-history.vim
 
 This plugin provides inline history completion feature to VimShell.
+Works with both Vim + NeoVim.
 
 ## Features
 
@@ -42,14 +43,18 @@ endif
 ```vim
 Plug 'supermomonga/vimshell-inline-history.vim', { 'depends' : [ 'Shougo/vimshell.vim' ] }
 
-function! VSHistmapCB(a,b)
+function! VSHistmapCB(...)
   let g:vimshell_inline_history#default_mappings = 0
   imap <buffer> <C-j>  <Plug>(vimshell_inline_history#next)
   imap <buffer> <C-k>  <Plug>(vimshell_inline_history#prev)
 endfunction
 
 function! VSHistmap()
-  call job_start(['bash','-c','echo "-"; exit;'],{'out_cb':'VSHistmapCB'})
+  if has("nvim")
+    call jobstart(['bash','-c','echo "-"; exit;'],{'on_stdout':'VSHistmapCB'})
+  else
+    call job_start(['bash','-c','echo "-"; exit;'],{'out_cb':'VSHistmapCB'})
+  endif
 endfunction
 
 "Group name can be arbitrary so long as doesn't conflict with another
